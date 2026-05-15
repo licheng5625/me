@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cheng Li - Curriculum Vitae</title>
+    <style>
+        :root {
+            --primary: #2e74b5;
+            --primary-light: #e8f1fa;
+            --text: #333;
+            --text-light: #666;
+            --border: #ddd;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background: #f5f5f5;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: #fff;
+            padding: 60px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+            border-radius: 4px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid var(--primary);
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            color: var(--primary);
+            margin-bottom: 8px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .header .subtitle {
+            font-size: 1.1em;
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            font-size: 0.95em;
+        }
+
+        .contact-info a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-info span::before {
+            margin-right: 5px;
+        }
+
+        /* Sections */
+        section {
+            margin-bottom: 35px;
+        }
+
+        section h2 {
+            font-size: 1.4em;
+            color: var(--primary);
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        section h3 {
+            font-size: 1.05em;
+            color: var(--text-light);
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        /* Entries */
+        .entry {
+            margin-bottom: 25px;
+            padding-left: 20px;
+            border-left: 3px solid var(--primary-light);
+        }
+
+        .entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            margin-bottom: 5px;
+        }
+
+        .entry-title {
+            font-weight: 600;
+            font-size: 1.05em;
+        }
+
+        .entry-date {
+            color: var(--primary);
+            font-size: 0.9em;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .entry-org {
+            font-style: italic;
+            color: var(--text-light);
+            margin-bottom: 5px;
+        }
+
+        .entry-location {
+            color: var(--text-light);
+            font-size: 0.9em;
+        }
+
+        .entry-description {
+            margin-top: 8px;
+            font-size: 0.95em;
+        }
+
+        .entry-description ul {
+            margin-top: 8px;
+            padding-left: 20px;
+        }
+
+        .entry-description li {
+            margin-bottom: 5px;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 12px 20px;
+            align-items: baseline;
+        }
+
+        .skill-level {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 0.9em;
+            text-transform: uppercase;
+        }
+
+        .skill-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 3px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
+        }
+
+        /* Awards */
+        .award-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 8px;
+            align-items: baseline;
+        }
+
+        .award-year {
+            font-weight: 600;
+            color: var(--primary);
+            min-width: 80px;
+            font-size: 0.9em;
+        }
+
+        .award-text {
+            font-size: 0.95em;
+        }
+
+        .award-text a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .award-text a:hover {
+            text-decoration: underline;
+        }
+
+        /* Languages */
+        .lang-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .lang-item {
+            padding: 12px 20px;
+            background: var(--primary-light);
+            border-radius: 6px;
+        }
+
+        .lang-name {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .lang-level {
+            font-size: 0.9em;
+            color: var(--text-light);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                margin: 0;
+                padding: 30px 20px;
+                border-radius: 0;
+            }
+
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .entry-header {
+                flex-direction: column;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @page {
+            margin: 10mm;
+        }
+
+        @media print {
+            body {
+                background: #fff;
+            }
+            .container {
+                box-shadow: none;
+                margin: 0;
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>Cheng Li</h1>
+            <p class="subtitle">Curriculum Vitae</p>
+            <div class="contact-info">
+                <span>&#128222; 017647755928</span>
+                <span>&#9993; <a href="mailto:licheng5625@gmail.com">licheng5625@gmail.com</a></span>
+            </div>
+        </header>
+
+        <!-- Education -->
+        <section>
+            <h2>Education</h2>
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">Masters of Computer Science</span>
+                    <span class="entry-date">2013 – 2016</span>
+                </div>
+                <div class="entry-org">Leibniz Universit&auml;t Hannover, Hannover</div>
+                <div class="entry-description">Grade: 2.3</div>
+            </div>
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">Bachelor of Computer Science</span>
+                    <span class="entry-date">2008 – 2012</span>
+                </div>
+                <div class="entry-org">Chang'an University, Xi'an, China</div>
+                <div class="entry-description">Grade: 2.3</div>
+            </div>
+        </section>
+
+        <!-- Work Experience -->
+        <section>
+            <h2>Vocational Experience</h2>
+            <h3>Full-time Positions</h3>
+
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">Senior Developer, Associate Development Architect</span>
+                    <span class="entry-date">Jul 2021 – Present</span>
+                </div>
+                <div class="entry-org">SAP SE, Product Lifecycle Management &mdash; Walldorf</div>
+                <div class="entry-description">
+                    <p>Full-stack developer of Connect Product and Product Insights</p>
+                    <ul>
+                        <li>Developed SaaS products as a Full-Stack Developer utilizing Kubernetes and Cloud Foundry on SAP BTP.</li>
+                        <li>Experience working with various cloud and open-source technologies such as SAP CAP, SAP HANA, PostgreSQL, InfluxDB, Kafka, among others.</li>
+                        <li>Proficient in using various programming tools including Java, Node.js, UI5, and Python.</li>
+                        <li>Familiar with DevOps methodologies, utilizing tools such as Azure Pipeline, Terraform, and automated testing.</li>
+                        <li>Experienced in working on various Hyperscalers like AWS, Azure, and SAP BTP.</li>
+                        <li>Hands-on experience in implementing Fast Iterations, Test-Driven Development, and Agile methodologies with CI/CD for efficient feature delivery.</li>
+                        <li>Developing familiarity with the roles and responsibilities of a Software Development Architect, including gathering requirements and developing PoCs swiftly using cutting-edge technologies.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">Senior Developer</span>
+                    <span class="entry-date">Dec 2016 – Jun 2021</span>
+                </div>
+                <div class="entry-org">SAP SE, S/4 HANA Cloud Foundation &mdash; Walldorf</div>
+                <div class="entry-description">
+                    <p>Developed new features for Output Management for S/4 HANA Cloud.</p>
+                    <ul>
+                        <li>Utilised ABAP, CDS, Open SQL, and OData for backend development.</li>
+                        <li>Frontend development was primarily conducted using JavaScript and Fiori (a JavaScript library based on jQuery).</li>
+                        <li>Functioned actively as a topic driver in a Scrum team, following Agile Development methodologies.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Part-time Positions</h3>
+
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">Research Assistant: C# Software Developer</span>
+                    <span class="entry-date">Mar 2014 – Mar 2016</span>
+                </div>
+                <div class="entry-org">Produktionstechnisches Zentrum Hannover &mdash; Hannover</div>
+                <div class="entry-description">
+                    <p>Key role in the development of plugins for their manufacturing simulation system "CutS", focusing on tool-path analysis, roughness calculation on different surfaces, and integration with Siemens NX's open APIs.</p>
+                    <ul>
+                        <li>Familiar with the Visual Studio development platform, extensive experience using source code management tools (TFS), and working in a team-based environment.</li>
+                        <li>Procured knowledge in various domains (such as Production Engineering), incorporating it into the projects. Extensive reading and application of documents related to other systems' APIs.</li>
+                        <li>Embraced Agile methodology: face-to-face discussions with supervisors and colleagues in both German and English. Participated in the setup of backlog items for the following week.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">Research Assistant: C++ Software Developer</span>
+                    <span class="entry-date">May 2015 – Nov 2016</span>
+                </div>
+                <div class="entry-org">Institut f&uuml;r Kommunikationstechnik &mdash; Hannover</div>
+                <div class="entry-description">
+                    <p>Developed and implemented Ad-Hoc routing protocols in the OMNET++ simulation system. Carried out testing, analysing and comparing the results of different protocols.</p>
+                    <ul>
+                        <li>Demonstrated the ability to work independently.</li>
+                        <li>Successfully accomplished challenging tasks within set deadlines, including in-depth reading and understanding of research papers on routing protocols, followed by practical implementation.</li>
+                        <li>Enhanced problem-solving skills, particularly for locating and resolving issues in complex systems with over 400 nodes and thousands of packets flowing throughout the network.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Professional Skills -->
+        <section>
+            <h2>Professional Skills</h2>
+            <div class="skills-grid">
+                <span class="skill-level">Advanced</span>
+                <div class="skill-items">
+                    <span class="skill-tag">Java</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">Kubernetes</span>
+                    <span class="skill-tag">Cloud Foundry</span>
+                    <span class="skill-tag">Docker</span>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">CI/CD</span>
+                    <span class="skill-tag">Azure Pipeline</span>
+                    <span class="skill-tag">SQL</span>
+                    <span class="skill-tag">CAP</span>
+                    <span class="skill-tag">UI5</span>
+                    <span class="skill-tag">ABAP</span>
+                </div>
+                <span class="skill-level">Intermediate</span>
+                <div class="skill-items">
+                    <span class="skill-tag">TypeScript</span>
+                    <span class="skill-tag">C#</span>
+                    <span class="skill-tag">C++</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Awards -->
+        <section>
+            <h2>Awards</h2>
+            <div class="award-item">
+                <span class="award-year">2024</span>
+                <span class="award-text">SAP Spot Award</span>
+            </div>
+            <div class="award-item">
+                <span class="award-year">2023</span>
+                <span class="award-text">SAP Spot Award</span>
+            </div>
+            <div class="award-item">
+                <span class="award-year">2022</span>
+                <span class="award-text">SAP Spot Award</span>
+            </div>
+            <div class="award-item">
+                <span class="award-year">2019–2020</span>
+                <span class="award-text">SAP Catalyst Employee</span>
+            </div>
+            <div class="award-item">
+                <span class="award-year">2012</span>
+                <span class="award-text">National College Student Electronic Design Contest – 2nd Prize</span>
+            </div>
+            <div class="award-item">
+                <span class="award-year">2011</span>
+                <span class="award-text">National Patent: Wireless USB Hub <a href="https://www.google.com/patents/CN201985394U?cl=en&hl=de" target="_blank">CN201985394U</a></span>
+            </div>
+            <div class="award-item">
+                <span class="award-year">2011</span>
+                <span class="award-text">National College Student Curricular Academic Science and Technology Works Competition – 1st Prize</span>
+            </div>
+            <div class="award-item">
+                <span class="award-year">2011</span>
+                <span class="award-text">National Scholarship – 1st Prize</span>
+            </div>
+        </section>
+
+        <!-- Languages -->
+        <section>
+            <h2>Languages</h2>
+            <div class="lang-grid">
+                <div class="lang-item">
+                    <div class="lang-name">Chinese</div>
+                    <div class="lang-level">Mother language</div>
+                </div>
+                <div class="lang-item">
+                    <div class="lang-name">English</div>
+                    <div class="lang-level">Fluent</div>
+                </div>
+                <div class="lang-item">
+                    <div class="lang-name">Deutsch</div>
+                    <div class="lang-level">Fluent (B2 level, DSH exam passed)</div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
